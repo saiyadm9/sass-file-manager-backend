@@ -10,7 +10,7 @@ type JwtPayload = {
 };
 
 function signAdminToken(payload: JwtPayload) {
-  return jwt.sign(payload, env.JWT_SECRET, { expiresIn: env.JWT_EXPIRES_IN });
+  return (jwt as any).sign(payload, env.JWT_SECRET, { expiresIn: env.JWT_EXPIRES_IN });
 }
 
 export class AdminService {
